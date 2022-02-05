@@ -8,4 +8,5 @@ export const getHeaders = {
 
 export const url = {
   global: "https://coinpaprika1.p.rapidapi.com/global",
+  search: "https://api.coinpaprika.com/v1/search?q="
 }
