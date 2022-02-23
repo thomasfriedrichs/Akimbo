@@ -31,6 +31,7 @@ export const CoinWrap = styled.div`
   padding: 1vh;
   display: flex;
   justify-content: space-around;
+  
 `
 
 export const P = styled.p` 

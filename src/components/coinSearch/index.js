@@ -11,9 +11,9 @@ import {
   CoinWrap, 
   P,
   FormWrap
-} from './coinSearchStyles';
+} from './coinSearchStyles'; 
 
-const CoinSearch = () => {
+const CoinSearch = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
 
@@ -41,23 +41,25 @@ const CoinSearch = () => {
           </FormWrap>
         )}
       </Formik>
-        {
-        isLoading ? (
+        { isLoading ? (
           <></>
         ) : (
           <>
             {data.currencies.map((coin, index) => {
+              const id = coin.id
               return (
-                <CoinWrap key={index}>
-                  <P>{coin.name}</P>
-                  <P>{coin.symbol}</P>
-                  <P>{coin.type}</P>
-                </CoinWrap>
+                  <CoinWrap 
+                    onClick={() => navigation.navigate('DetailsStackScreen', id)} 
+                    key={index}
+                  >
+                    <P>{coin.name}</P>
+                    <P>{coin.symbol}</P>
+                    <P>{coin.type}</P>
+                  </CoinWrap>
               )
             })}
           </>
-        )
-        }
+        )}
     </View>
   );
 };
