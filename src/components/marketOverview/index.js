@@ -1,11 +1,20 @@
-import React, {useState, useEffect} from 'react';
-import
-{ 
+import React, {
+  useState, 
+  useEffect
+} from 'react';
+import { 
   View, 
   ActivityIndicator
 } from 'react-native';
-import { getHeaders, url } from '../../api/index';
-import { styles, P, H1 } from './overviewStyles';
+import { 
+  getHeaders, 
+  url 
+} from '../../api/index';
+import { 
+  styles, 
+  P, 
+  H1 
+} from './overviewStyles';
 
 const MarketOverview = () => {
   const [isLoading, setLoading] = useState(true);
