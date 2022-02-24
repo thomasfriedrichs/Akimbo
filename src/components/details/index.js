@@ -10,7 +10,8 @@ import {
   styles, 
   P,
   H2,
-  Div
+  Div,
+  LinkWrapper
 } from './detailsStyles';
 
 const Details = ({ navigation, id }) => {
@@ -36,21 +37,23 @@ const Details = ({ navigation, id }) => {
           <br/>
           <P>{data.description}</P>
           <P>Consensus: {data.proof_type} / {data.hash_algorithm}</P>
-          <Div
-            onClick={() => navigation.navigate('Markets')}
-          >
-            <H2>Markets </H2>
-          </Div>
-          <Div
-            onClick={() => navigation.navigate('Events')}
-          >
-            <H2>Events </H2>
-          </Div>
-          <Div
-            onClick={() => navigation.navigate('Twitter')}
-          >
-            <H2>Twitter </H2>
-          </Div>
+          <LinkWrapper>
+            <Div
+              onClick={() => navigation.navigate('Markets')}
+            >
+              <H2>Markets </H2>
+            </Div>
+            <Div
+              onClick={() => navigation.navigate('Events')}
+            >
+              <H2>Events </H2>
+            </Div>
+            <Div
+              onClick={() => navigation.navigate('Twitter')}
+            >
+              <H2>Twitter </H2>
+            </Div>
+          </LinkWrapper>
         </>
       )}
     </View>

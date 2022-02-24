@@ -21,6 +21,12 @@ export const H2 = styled.h2`
 `
 
 export const Div = styled.div` 
-  margin: 2vh;
+  margin: 0.5vh;
   border-bottom: solid;
+  gap: 3vw;
+`
+
+export const LinkWrapper = styled.div` 
+  display: flex;
+  gap: 5vw;
 `
