@@ -47,9 +47,10 @@ const CoinSearch = ({ navigation }) => {
           <>
             {data.currencies.map((coin, index) => {
               const id = coin.id
+              console.log('id',id);
               return (
                   <CoinWrap 
-                    onClick={() => navigation.navigate('Details', id)} 
+                    onClick={(id) => navigation.navigate('Details', id)} 
                     key={index}
                   >
                     <P>{coin.name}</P>
