@@ -1,7 +1,7 @@
 import React from "react";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import MarketOverview from "./../marketOverview";
-import SearchsStackScreen from './searchStackNav'
+import SearchStackScreen from './searchStackNav'
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -17,7 +17,7 @@ const Nav = () => {
       />
       <Tab.Screen
         name='Coin Search'
-        component={SearchsStackScreen}
+        component={SearchStackScreen}
         options={{
           title: 'Search'
         }}

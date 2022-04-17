@@ -31,7 +31,7 @@ const CoinSearch = ({ navigation }) => {
         initialValues={{text:''}}
         onSubmit={values => Fetch(values.text)}
       >
-        {({ handleChange, handleSubmit }) => (
+        {({ handleChange, handleSubmit }) => ( 
           <FormWrap>
             <TextInput
               style={styles.input}
@@ -49,7 +49,7 @@ const CoinSearch = ({ navigation }) => {
               const id = coin.id
               return (
                   <CoinWrap 
-                    onClick={() => navigation.navigate('DetailsStackScreen', id)} 
+                    onClick={() => navigation.navigate('Details', id)} 
                     key={index}
                   >
                     <P>{coin.name}</P>
