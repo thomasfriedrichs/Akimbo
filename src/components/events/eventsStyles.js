@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     flexDirection: 'column',
     flex:1,
   }
-})
+});
 
 export const Div = styled.div` 
   margin: 1.5vh 10vw;
@@ -20,7 +20,7 @@ export const Div = styled.div`
   border-width: 0.1vh;
   border-radius: 10px;
   width: 80vw;
-`
+`;
 
 export const A = styled.a` 
   display: inline-flex;
@@ -28,10 +28,10 @@ export const A = styled.a`
   gap: 2vh;
   text-decoration: none;
   color: white !important;
-`
+`;
 
 
 export const P = styled.p` 
   align-items: center;
   margin: 1vh 0;
-`
+`;

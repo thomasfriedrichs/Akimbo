@@ -1,32 +1,56 @@
-import React from 'react';
+import React, {
+  useContext
+} from 'react';
 import { 
   createNativeStackNavigator 
 } from '@react-navigation/native-stack';
 import CoinSearch from '../coinSearch/index';
-import DetailsStackScreen from './detailsStackNav';
+import Details from '../details/index';
+import Events from './../events/index';
+import Markets from './../markets/index';
+import Twitter from './../twitter/index';
+import { IdContext } from '.';
 
-const SearchsStack = createNativeStackNavigator();
+const SearchStack = createNativeStackNavigator();
 
 const SearchsStackScreen = () => {
+  const { id, setId } = useContext(IdContext);
+
   return (
-    <SearchsStack.Navigator 
-      screenOptions={{
-        headerTitle: '',
-      }}
-    >
-      <SearchsStack.Screen 
-        name="Search" 
-        component={CoinSearch}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <SearchsStack.Screen 
-        name="DetailsStackScreen" 
-        component={DetailsStackScreen}
-      />
-    </SearchsStack.Navigator>
+    <IdContext.Consumer value={id}>
+      {id => (
+        <SearchStack.Navigator 
+          screenOptions={{
+            headerTitle: '',
+          }}
+        >
+          <SearchStack.Screen 
+            name="Search" 
+            component={CoinSearch}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <SearchStack.Screen
+            name="Details" 
+            component={Details}
+          />
+          <SearchStack.Screen 
+            name="Markets" 
+            component={Markets}
+          />
+          <SearchStack.Screen 
+            name="Events"
+            component={Events} 
+          />
+          <SearchStack.Screen 
+            name="Twitter" 
+            component={Twitter}
+          />
+        </SearchStack.Navigator>
+      )}
+    </IdContext.Consumer>
   );
-}
+};
 
 export default SearchsStackScreen;

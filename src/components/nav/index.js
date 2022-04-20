@@ -1,28 +1,42 @@
-import React from "react";
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import React, {
+  useState
+} from "react";
+import { 
+  createMaterialTopTabNavigator 
+} from '@react-navigation/material-top-tabs';
 import MarketOverview from "./../marketOverview";
-import SearchsStackScreen from './searchStackNav'
+import SearchStackScreen from './searchStackNav';
 
 const Tab = createMaterialTopTabNavigator();
 
+export const IdContext = React.createContext({
+  id: '',
+  setId: () => {}
+});
+
 const Nav = () => {
+  const [ id, setId ] = useState('');
+  const value = { id, setId};
+
   return(
-    <Tab.Navigator>
-      <Tab.Screen 
-        name='Home'
-        component={MarketOverview}
-        options={{
-          title: 'Home'
-        }}
-      />
-      <Tab.Screen
-        name='Coin Search'
-        component={SearchsStackScreen}
-        options={{
-          title: 'Search'
-        }}
-      />
-    </Tab.Navigator>
+    <IdContext.Provider value={value}>
+      <Tab.Navigator>
+        <Tab.Screen 
+          name='Home'
+          component={MarketOverview}
+          options={{
+            title: 'Home'
+          }}
+        />
+          <Tab.Screen
+            name='Coin Search'
+            component={SearchStackScreen}
+            options={{
+              title: 'Search'
+            }}
+          />
+      </Tab.Navigator>
+    </IdContext.Provider>
   )
 };
 

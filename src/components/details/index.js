@@ -1,6 +1,7 @@
 import React, {
   useState, 
-  useEffect
+  useEffect,
+  useContext
 } from 'react';
 import {
   View, 
@@ -13,10 +14,12 @@ import {
   Div,
   LinkWrapper
 } from './detailsStyles';
+import { IdContext } from '../nav';
 
-const Details = ({ navigation, id }) => {
+const Details = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const { id } = useContext(IdContext); 
 
   //fetch data
   useEffect(() => {

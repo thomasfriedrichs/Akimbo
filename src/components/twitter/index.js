@@ -1,6 +1,7 @@
 import React, {
   useState, 
-  useEffect
+  useEffect,
+  useContext
 } from 'react';
 import {
   View,
@@ -14,20 +15,22 @@ import {
   A,
   Img
 } from './twitterStyles';
+import { IdContext } from '../nav';
 
-const Twitter = ({ id }) => {
+const Twitter = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const { id, setId } = useContext(IdContext);
 
   useEffect(() => {
     fetch(`${url.twitter}${id}/twitter`)
     .then(response => response.json())
     .then(json => setData(json))
     .catch(err => console.error(err))
-    .finally(setTimeout(() => {setLoading(false)}, 500))
+    .finally(setTimeout(() => {setLoading(false)}, 500));
   });
   
-  const dataReversed = data.reverse()
+  const dataReversed = data.reverse();
 
   return (
     <View
@@ -54,7 +57,7 @@ const Twitter = ({ id }) => {
         />
       }
     </View>
-  )
-}
+  );
+};
 
 export default Twitter;
