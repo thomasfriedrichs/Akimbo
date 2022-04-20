@@ -28,7 +28,7 @@ const Twitter = () => {
     .then(json => setData(json))
     .catch(err => console.error(err))
     .finally(setTimeout(() => {setLoading(false)}, 500));
-  });
+  },[]);
   
   const dataReversed = data.reverse();
 

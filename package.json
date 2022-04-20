@@ -10,6 +10,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@logrocket/react-native": "^1.2.2",
     "@react-navigation/bottom-tabs": "^6.1.0",
     "@react-navigation/material-top-tabs": "^6.1.0",
     "@react-navigation/native": "^6.0.7",
