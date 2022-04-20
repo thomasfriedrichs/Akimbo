@@ -18,10 +18,11 @@ export const P = styled.p`
   padding-bottom: 4vh;
   text-align: center;
   font-size: 1rem;
-`
+`;
+
 export const H1 = styled.h1` 
   width: 80vw;
   text-align: center;
   padding-bottom: 5vh;
   font-size: 2rem;
-`
+`;

@@ -13,15 +13,13 @@ import {
   P,
   Div,
   A,
-  Img
 } from './eventsStyles';
 import { IdContext } from '../nav';
 
 const Events = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  const { id, setId } = useContext(IdContext);
-
+  const { id } = useContext(IdContext);
 
   useEffect(() => {
     fetch(`${url.events}${id}/events`)
@@ -31,7 +29,7 @@ const Events = () => {
     .finally(setTimeout(() => {setLoading(false)}, 500));
   });
   
-  const dataReversed = data.reverse()
+  const dataReversed = data.reverse();
 
   return (
     <View
@@ -58,7 +56,7 @@ const Events = () => {
         />
       }
     </View>
-  )
-}
+  );
+};
 
 export default Events;

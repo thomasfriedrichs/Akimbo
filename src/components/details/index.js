@@ -19,7 +19,7 @@ import { IdContext } from '../nav';
 const Details = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  const { id, setId } = useContext(IdContext);
+  const { id } = useContext(IdContext); 
 
   //fetch data
   useEffect(() => {

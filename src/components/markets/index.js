@@ -20,7 +20,7 @@ import { IdContext } from '../nav';
 const Markets = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  const { id, setId } = useContext(IdContext);
+  const { id } = useContext(IdContext);
 
   useEffect(() => {
     fetch(`${url.markets}${id}/markets`)
@@ -55,7 +55,7 @@ const Markets = () => {
         />
       }
     </View>
-  )
-}
+  );
+};
 
 export default Markets;

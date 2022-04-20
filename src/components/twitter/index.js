@@ -22,7 +22,6 @@ const Twitter = () => {
   const [data, setData] = useState([]);
   const { id, setId } = useContext(IdContext);
 
-
   useEffect(() => {
     fetch(`${url.twitter}${id}/twitter`)
     .then(response => response.json())
@@ -58,7 +57,7 @@ const Twitter = () => {
         />
       }
     </View>
-  )
-}
+  );
+};
 
 export default Twitter;
