@@ -1,4 +1,6 @@
-import React from 'react';
+import React, {
+  useContext
+} from 'react';
 import { 
   createNativeStackNavigator 
 } from '@react-navigation/native-stack';
@@ -11,55 +13,44 @@ import { IdContext } from '.';
 
 const SearchStack = createNativeStackNavigator();
 
-const SearchsStackScreen = props => {
-
-  const id = props.route.params;
+const SearchsStackScreen = () => {
+  const { id, setId } = useContext(IdContext);
 
   return (
-    <IdContext.Consumer>
-      <SearchStack.Navigator 
-        screenOptions={{
-          headerTitle: '',
-        }}
-      >
-        <SearchStack.Screen 
-          name="Search" 
-          component={CoinSearch}
-          options={{
-            headerShown: false,
+    <IdContext.Consumer value={id}>
+      {id => (
+        <SearchStack.Navigator 
+          screenOptions={{
+            headerTitle: '',
           }}
-        />
-      
-        <SearchStack.Screen
-          name="Details" 
         >
-          {props => <Details {...props}  id={id}/>}
-        </SearchStack.Screen>
-      
-      
-        <SearchStack.Screen 
-          name="Markets" 
-        >
-          {props => <Markets {...props} id={id}/>}
-        </SearchStack.Screen>
-      
-      
-        <SearchStack.Screen 
-          name="Events" 
-        >
-          {props => <Events {...props} id={id}/>}
-        </SearchStack.Screen>
-      
-      
-        <SearchStack.Screen 
-          name="Twitter" 
-        >
-          {props => <Twitter {...props} id={id}/>}
-        </SearchStack.Screen>
-      
-      </SearchStack.Navigator>
+          <SearchStack.Screen 
+            name="Search" 
+            component={CoinSearch}
+            options={{
+              headerShown: false,
+            }}
+          />
+          <SearchStack.Screen
+            name="Details" 
+            component={Details}
+          />
+          <SearchStack.Screen 
+            name="Markets" 
+            component={Markets}
+          />
+          <SearchStack.Screen 
+            name="Events"
+            component={Events} 
+          />
+          <SearchStack.Screen 
+            name="Twitter" 
+            component={Twitter}
+          />
+        </SearchStack.Navigator>
+      )}
     </IdContext.Consumer>
   );
-}
+};
 
 export default SearchsStackScreen;

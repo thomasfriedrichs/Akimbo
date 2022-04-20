@@ -1,5 +1,6 @@
 import React, { 
-  useState 
+  useState,
+  useContext 
 } from 'react';
 import { 
   View, 
@@ -14,17 +15,26 @@ import {
   P,
   FormWrap
 } from './coinSearchStyles'; 
+import { IdContext } from '../nav';
 
 const CoinSearch = ({ navigation }) => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const { id, setId } = useContext(IdContext);
 
+  //API query
   const Fetch = text => {
     fetch(`${url.search}${text}`)
     .then(response => response.json())
     .then(json => setData(json))
     .catch(err => console.error(err))
     .finally(setTimeout(() => {setLoading(false)}, 1000))
+  }
+
+  //Updates context state then navigates to details
+  const NavIdUpdate = (id) => {
+    setId(id)
+    navigation.navigate('Details')
   }
 
   return (
@@ -52,7 +62,7 @@ const CoinSearch = ({ navigation }) => {
               console.log('id',id);
               return (
                 <CoinWrap 
-                  onClick={(id) => navigation.navigate('Details', id)} 
+                  onClick={() => NavIdUpdate(id)} 
                   key={index}
                 >
                   <P>{coin.name}</P>
