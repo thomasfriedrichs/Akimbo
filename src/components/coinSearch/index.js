@@ -28,14 +28,14 @@ const CoinSearch = ({ navigation }) => {
     .then(response => response.json())
     .then(json => setData(json))
     .catch(err => console.error(err))
-    .finally(setTimeout(() => {setLoading(false)}, 1000))
-  }
+    .finally(setTimeout(() => {setLoading(false)}, 1000));
+  };
 
   //Updates context state then navigates to details
   const NavIdUpdate = (id) => {
-    setId(id)
-    navigation.navigate('Details')
-  }
+    setId(id);
+    navigation.navigate('Details');
+  };
 
   return (
     <View style={styles.container}>

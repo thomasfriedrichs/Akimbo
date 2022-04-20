@@ -1,6 +1,7 @@
 import React, {
   useState, 
-  useEffect
+  useEffect,
+  useContext
 } from 'react';
 import {
   View,
@@ -14,10 +15,12 @@ import {
   A,
   Exchange
 } from './marketsStyles';
+import { IdContext } from '../nav';
 
-const Markets = ({ id }) => {
+const Markets = () => {
   const [isLoading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const { id, setId } = useContext(IdContext);
 
   useEffect(() => {
     fetch(`${url.markets}${id}/markets`)
