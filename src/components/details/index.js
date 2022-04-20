@@ -28,7 +28,7 @@ const Details = ({ navigation }) => {
     .then(json => setData(json))
     .catch(err => console.error(err))
     .finally(setLoading(false));
-  });
+  },[]);
 
   return(
     <View style={styles.container}>

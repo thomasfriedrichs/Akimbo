@@ -22,13 +22,21 @@ const Markets = () => {
   const [data, setData] = useState([]);
   const { id } = useContext(IdContext);
 
+
+
   useEffect(() => {
-    fetch(`${url.markets}${id}/markets`)
-    .then(response => response.json())
-    .then(json => setData(json))
-    .catch(err => console.error(err))
-    .finally(setTimeout(() => {setLoading(false)}, 500))
-  });
+    let callApi = true;
+    if(callApi) {
+      fetch(`${url.markets}${id}/markets`)
+      .then(response => response.json())
+      .then(json => setData(json))
+      .catch(err => console.error(err))
+      .finally(setTimeout(() => {setLoading(false)}, 500))
+    }
+    return () => {
+      callApi = false;
+    };
+  },[]);
   
   return (
     <View
