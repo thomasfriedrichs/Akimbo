@@ -1,9 +1,13 @@
 import React from "react";
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { 
+  createMaterialTopTabNavigator 
+} from '@react-navigation/material-top-tabs';
 import MarketOverview from "./../marketOverview";
-import SearchStackScreen from './searchStackNav'
+import SearchStackScreen from './searchStackNav';
 
 const Tab = createMaterialTopTabNavigator();
+
+export const IdContext = React.createContext('');
 
 const Nav = () => {
   return(
@@ -15,13 +19,15 @@ const Nav = () => {
           title: 'Home'
         }}
       />
-      <Tab.Screen
-        name='Coin Search'
-        component={SearchStackScreen}
-        options={{
-          title: 'Search'
-        }}
-      />
+      <IdContext.Provider value={''}>
+        <Tab.Screen
+          name='Coin Search'
+          component={SearchStackScreen}
+          options={{
+            title: 'Search'
+          }}
+        />
+      </IdContext.Provider>
     </Tab.Navigator>
   )
 };

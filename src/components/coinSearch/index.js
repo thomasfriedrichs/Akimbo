@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { 
+  useState 
+} from 'react';
 import { 
   View, 
   TextInput,
@@ -49,14 +51,14 @@ const CoinSearch = ({ navigation }) => {
               const id = coin.id
               console.log('id',id);
               return (
-                  <CoinWrap 
-                    onClick={(id) => navigation.navigate('Details', id)} 
-                    key={index}
-                  >
-                    <P>{coin.name}</P>
-                    <P>{coin.symbol}</P>
-                    <P>{coin.type}</P>
-                  </CoinWrap>
+                <CoinWrap 
+                  onClick={(id) => navigation.navigate('Details', id)} 
+                  key={index}
+                >
+                  <P>{coin.name}</P>
+                  <P>{coin.symbol}</P>
+                  <P>{coin.type}</P>
+                </CoinWrap>
               )
             })}
           </>
