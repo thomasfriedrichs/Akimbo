@@ -1,4 +1,4 @@
-# _Crypto Market Data_
+# _Akimbo_
 
 #### By _**Thomas Friedrichs**_
 
